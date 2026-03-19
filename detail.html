@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Details - Scientifier</title>
+    <meta name="description" content="Explore detailed program information at Scientifier.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Scientifier.</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav" id="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                    <li><a href="chatbot.html" data-i18n="nav_chatbot">Ask Scienti</a></li>
+                    <li><a href="method.html" data-i18n="nav_system">Method & Mission</a></li>
+                    <li><a href="programs.html" data-i18n="nav_programs" class="active">Learning & Programs</a></li>
+                    <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge Hub</a></li>
+                    <li><a href="pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <select id="language-select" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="ar">العربية</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="detail-main">
+        <!-- Regular Program Detail (Static) -->
+        <section id="regular-detail" class="section bg-surface">
+            <div class="container">
+                <a href="programs.html" class="btn btn-secondary"
+                    style="margin-bottom: var(--spacing-md); display: inline-flex; gap: 0.5rem;">
+                    <span>←</span> <span data-i18n="btn_back_programs">Back to Programs</span>
+                </a>
+                <h1 id="detail-title" class="section-title" style="text-align: left; margin-bottom: var(--spacing-sm);">
+                    Loading...</h1>
+                <div id="detail-content" class="program-desc" style="font-size: 1.2rem; min-height: 50vh;">
+                    <!-- Content injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Detail (Dynamic Curriculum) -->
+        <div id="course-detail-shell" style="display:none;">
+            <!-- Will be populated by JS -->
+        </div>
+    </main>
+
+    <!-- Neuro-Science Overlays -->
+    <div id="gap-overlay">
+        <div style="font-size: 4rem; margin-bottom: 2rem;">🧠⚡️</div>
+        <h2 style="font-size: 2rem; color: #10b981; margin-bottom: 1rem;">Neural Replay in Progress</h2>
+        <p style="opacity: 0.7; max-width: 500px; text-align: center; margin-bottom: 2rem;">
+            Do nothing. Your hippocampus is currently replaying the firing sequence at 20x speed to consolidate memory.
+        </p>
+        <div id="gap-timer" style="font-size: 3rem; font-weight: 700; font-family: monospace;">10</div>
+    </div>
+
+    <div id="nsdr-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0f172a, #1e1b4b); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🧘‍♀️</div>
+        <h2 style="font-size: 2rem; color: #a5b4fc; margin-bottom: 0.5rem;">Non-Sleep Deep Rest</h2>
+        <p style="opacity: 0.7;">Close your eyes. Let the neuroplasticity set.</p>
+        <div id="nsdr-timer" style="font-size: 4rem; font-weight: 200; margin-top: 2rem; font-family: monospace;">20:00
+        </div>
+        <button id="exit-nsdr"
+            style="margin-top: 3rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); padding: 8px 20px; border-radius: 20px; cursor: pointer;">Exit
+            Session</button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="knowledge.html">Knowledge Hub</a></li>
+                        <li><a href="method.html">The Method</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="demo.html">Try Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><svg width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Scientifier. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="knowledge_data.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="detail.js"></script>
+</body>
+
+</html>

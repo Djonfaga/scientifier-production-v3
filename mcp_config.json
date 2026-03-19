@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "scientifiers-helper": {
+            "command": "node",
+            "args": [
+                "/home/bd/Desktop/aime/scientifiersWA/app_scientifiers/mcp/scientifiers-server/src/index.js"
+            ],
+            "env": {
+                "PROJECT_ROOT": "/home/bd/Desktop/aime/scientifiersWA/app_scientifiers"
+            }
+        }
+    }
+}

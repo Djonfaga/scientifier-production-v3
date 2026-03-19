@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Scientifier - Science-Based Learning</title>
+    <meta
+        content="Scientifier: Revolutionize your potential. We combine neuroscience, psychology, and AI to make learning effortless, permanent, and accessible worldwide."
+        name="description" />
+    <meta content="language learning, AI education, spaced repetition, neuroscience learning, scientifier"
+        name="keywords" />
+    <!-- Open Graph / Facebook -->
+    <meta content="website" property="og:type" />
+    <meta content="https://scientifier.com/" property="og:url" />
+    <meta content="Scientifier - Science-Based Learning" property="og:title" />
+    <meta
+        content="Revolutionize your potential. We combine neuroscience, psychology, and AI to make learning effortless, permanent, and accessible worldwide."
+        property="og:description" />
+    <meta content="https://scientifier.com/assets/og-image.jpg" property="og:image" />
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card" />
+    <meta content="https://scientifier.com/" property="twitter:url" />
+    <meta content="Scientifier - Science-Based Learning" property="twitter:title" />
+    <meta
+        content="Revolutionize your potential. We combine neuroscience, psychology, and AI to make learning effortless, permanent, and accessible worldwide."
+        property="twitter:description" />
+    <meta content="https://scientifier.com/assets/og-image.jpg" property="twitter:image" />
+    <!-- Favicon & PWA -->
+    <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="manifest.json" rel="manifest" />
+    <meta content="#10b981" name="theme-color" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" type="text/javascript"></script>
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Scientifier",
+        "url": "https://scientifier.com",
+        "logo": "https://scientifier.com/favicon.svg",
+        "description": "Science-based learning platform combining neuroscience, psychology, and AI",
+        "sameAs": [
+            "https://twitter.com/scientifier",
+            "https://linkedin.com/company/scientifier"
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a class="skip-link" href="#home" data-i18n="skip_to_content">Skip to main content</a>
+    <header class="header">
+        <div class="container header-container">
+            <a class="logo" href="index.html">Scientifier.</a>
+            <button aria-label="Toggle navigation menu" class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav" id="main-nav">
+                <ul class="nav-list">
+                    <li><a class="active" data-i18n="nav_home" href="index.html">Home</a></li>
+                    <li><a data-i18n="nav_chatbot" href="chatbot.html">Ask Scienti</a></li>
+                    <li><a data-i18n="nav_system" href="method.html">Method &amp; Mission</a></li>
+                    <li><a data-i18n="nav_programs" href="programs.html">Learning &amp; Programs</a></li>
+                    <li><a data-i18n="nav_knowledge" href="knowledge.html">Knowledge Hub</a></li>
+                    <li><a data-i18n="nav_pricing" href="pricing.html">Pricing</a></li>
+                    <li><a data-i18n="nav_contact" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <select aria-label="Select Language" id="language-select">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="ar">العربية</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+                <button aria-label="Toggle Dark Mode" class="theme-toggle" id="theme-toggle">
+                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewbox="0 0 24 24" width="20">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <canvas id="neural-bg"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;"></canvas>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="eyebrow" data-i18n="hero_eyebrow">Revolutionize Your Potential</span>
+                    <h1 class="hero-title"><span data-i18n="hero_title_1">Mastery,</span> <br /> <span
+                            class="gradient-text" data-i18n="hero_title_2">Powered by Science</span></h1>
+                    <p class="hero-description" data-i18n="hero_desc">Stop struggling. Start mastering. We decode the
+                        neuroscience of learning to make education accessible, efficient, and permanent for everyone,
+                        everywhere.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary pulse-btn" data-i18n="btn_try_free" href="demo.html">Try Free Demo</a>
+                        <a class="btn btn-secondary" data-i18n="btn_system" href="method.html">Discover the Science</a>
+                    </div>
+                    <!-- App Store Badges -->
+                    <div class="app-badges" style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a aria-label="Download on App Store" class="app-badge" href="#">
+                            <img alt="Download on App Store" height="40" loading="lazy"
+                                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" />
+                        </a>
+                        <a aria-label="Get it on Google Play" class="app-badge" href="#">
+                            <img alt="Get it on Google Play" height="40" loading="lazy"
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" />
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual" style="height: auto;">
+                    <video autoplay="" controls="" loop="" muted="" playsinline=""
+                        style="width: 100%; max-width: 600px; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+                        <source src="websitescreenshot1.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Signals / Stats Section -->
+        <section class="trust-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Active Learners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">95%</span>
+                        <span class="stat-label">Retention Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">6</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Hours of Content</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- AI Chatbot Section -->
+        <section class="chat-section" id="ai-tutor">
+            <div class="container">
+                <div class="section-title" style="margin-bottom: var(--spacing-lg);">
+                    <h2 data-i18n="chat_title">Meet Your AI Tutor</h2>
+                    <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 1rem auto;">
+                        Experience the future of personalized learning. Ask questions, get explanations, or request a
+                        customized study plan.
+                    </p>
+                </div>
+                <div class="chat-container"
+                    style="text-align: center; padding: var(--spacing-lg); background: var(--color-surface); border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🧠</div>
+                    <h3 data-i18n="chat_bot_name" style="margin-bottom: 1rem;">Scienti</h3>
+                    <p style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                        Ready to learn faster? Talk to Scienti, your AI tutor, in a dedicated space designed for focus
+                        and flow.
+                    </p>
+                    <div class="chat-actions"
+                        style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a class="btn btn-secondary" data-i18n="nav_chatbot" href="chatbot.html">Ask Scienti</a>
+                        <a class="btn btn-primary pulse-btn" data-i18n="btn_try_free" href="demo.html">Try Free Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Gamification Showcase -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="game_title">Learning Made Engaging</h2>
+                <p data-i18n="game_desc"
+                    style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Our gamified system keeps you motivated with rewards, streaks, and progress tracking.
+                </p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔥</div>
+                        <h3 data-i18n="streak_title">Daily Streaks</h3>
+                        <p data-i18n="streak_desc">Build unstoppable momentum. Your streak motivates daily practice and
+                            triggers habit formation.</p>
+                    </div>
+                    <div class="about-card">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                        <h3 data-i18n="xp_title">XP &amp; Levels</h3>
+                        <p data-i18n="xp_desc">Earn experience points for every lesson. Watch your level rise as your
+                            skills grow stronger.</p>
+                    </div>
+                    <div class="about-card">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏆</div>
+                        <h3 data-i18n="achieve_title">Achievements</h3>
+                        <p data-i18n="achieve_desc">Unlock badges for milestones. Complete challenges to showcase your
+                            progress.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- AI Features Showcase -->
+        <section class="section" style="background: var(--color-surface);">
+            <div class="container">
+                <h2 class="section-title" data-i18n="ai_feat_title">AI-Powered Personalization</h2>
+                <div class="about-grid" style="max-width: 900px; margin: 0 auto;">
+                    <div class="about-card">
+                        <h3 data-i18n="adaptive_title">🧠 Adaptive Difficulty</h3>
+                        <p data-i18n="adaptive_desc">Our AI analyzes your performance in real-time and adjusts lesson
+                            difficulty to keep you in the optimal zone.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3 data-i18n="spaced_title">📊 Smart Spaced Repetition</h3>
+                        <p data-i18n="spaced_desc">Our algorithm predicts exactly when you're about to forget and
+                            schedules reviews for maximum retention.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3 data-i18n="pathway_title">🎯 Personalized Pathways</h3>
+                        <p data-i18n="pathway_desc">Your goals shape your curriculum. AI curates content that matters to
+                            you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="testimonials">
+            <div class="container">
+                <h2 class="section-title" data-i18n="testi_title">Real Results</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">👩</div>
+                            <div>
+                                <div aria-label="5 out of 5 stars" class="star-rating">
+                                    <span class="star">★</span><span class="star">★</span><span
+                                        class="star">★</span><span class="star">★</span><span class="star">★</span>
+                                </div>
+                                <p class="quote" data-i18n="testi_1_quote">"Scientifier didn't just teach me Spanish; it
+                                    rewired how I learn. The retention techniques are borderline magic."</p>
+                                <p class="author">- Sarah J., Toronto</p>
+                                <p style="font-size: 0.8rem; color: var(--color-text-muted);">Reached B2 in 6 months</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">👩🏽</div>
+                            <div>
+                                <div aria-label="5 out of 5 stars" class="star-rating">
+                                    <span class="star">★</span><span class="star">★</span><span
+                                        class="star">★</span><span class="star">★</span><span class="star">★</span>
+                                </div>
+                                <p class="quote" data-i18n="testi_2_quote">"The Arabic labs are intense and incredibly
+                                    effective. I'm finally speaking with confidence and connecting to my roots."</p>
+                                <p class="author">- Amara K., London</p>
+                                <p style="font-size: 0.8rem; color: var(--color-text-muted);">200+ day streak</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">👨</div>
+                            <div>
+                                <div aria-label="5 out of 5 stars" class="star-rating">
+                                    <span class="star">★</span><span class="star">★</span><span
+                                        class="star">★</span><span class="star">★</span><span class="star">★</span>
+                                </div>
+                                <p class="quote" data-i18n="testi_3_quote">"Precision coaching was the game-changer. I
+                                    walked into my French interview with zero fear and got the job."</p>
+                                <p class="author">- Mark D., Paris</p>
+                                <p style="font-size: 0.8rem; color: var(--color-text-muted);">From A1 to B2 in 8 months
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="section" style="text-align: center; padding: var(--spacing-xl) 0;">
+            <div class="container">
+                <h2 class="section-title" data-i18n="cta_title">Ready to Transform Your Learning?</h2>
+                <p data-i18n="cta_desc"
+                    style="color: var(--color-text-muted); margin-bottom: var(--spacing-md); max-width: 500px; margin-left: auto; margin-right: auto;">
+                    Join 50,000+ learners who've already upgraded their brain.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a class="btn btn-primary pulse-btn" data-i18n="btn_try_free" href="demo.html">Try Free Demo</a>
+                    <a class="btn btn-secondary" data-i18n="nav_pricing" href="pricing.html">View Pricing</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4 data-i18n="footer_product">Product</h4>
+                    <ul>
+                        <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
+                        <li><a href="knowledge.html" data-i18n="nav_knowledge">Knowledge Hub</a></li>
+                        <li><a href="method.html" data-i18n="nav_system">The Method</a></li>
+                        <li><a href="pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+                        <li><a href="demo.html" data-i18n="btn_try_free">Try Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer_company">Company</h4>
+                    <ul>
+                        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                        <li><a href="blog.html" data-i18n="footer_blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer_legal">Legal</h4>
+                    <ul>
+                        <li><a href="terms.html" data-i18n="footer_terms">Terms of Service</a></li>
+                        <li><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer_connect">Connect</h4>
+                    <div class="social-links">
+                        <a aria-label="Twitter" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24"
+                                width="20">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                </path>
+                            </svg></a>
+                        <a aria-label="LinkedIn" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24"
+                                width="20">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+                                </path>
+                            </svg></a>
+                        <a aria-label="YouTube" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24"
+                                width="20">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                                </path>
+                            </svg></a>
+                    </div>
+                    <div class="app-badges" style="margin-top: 1rem;">
+                        <a aria-label="Download on App Store" class="app-badge" href="#">
+                            <img alt="App Store" height="40" loading="lazy"
+                                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" />
+                        </a>
+                        <a aria-label="Get it on Google Play" class="app-badge" href="#">
+                            <img alt="Google Play" height="40" loading="lazy"
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Newsletter Signup -->
+            <div class="newsletter-box" style="margin-bottom: var(--spacing-lg);">
+                <h3 data-i18n="news_title">📬 Stay in the Loop</h3>
+                <p data-i18n="news_desc">Get weekly learning tips, AI insights, and exclusive early access to new
+                    features.</p>
+                <form class="newsletter-inline" id="newsletter-form">
+                    <input aria-label="Email for newsletter" data-i18n-placeholder="news_placeholder"
+                        placeholder="your@email.com" required="" type="email" />
+                    <button data-i18n="news_btn" type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter-privacy" data-i18n="news_privacy">No spam ever. Unsubscribe anytime.</p>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 Scientifier. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

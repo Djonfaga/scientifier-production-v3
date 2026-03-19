@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/api/index.js"
+        },
+        {
+            "source": "/program/([^/]+)",
+            "destination": "/detail.html?id=$1"
+        },
+        {
+            "source": "/course/([^/]+)",
+            "destination": "/detail.html?slug=$1"
+        },
+        {
+            "source": "/blog/([^/]+)",
+            "destination": "/blog_detail.html?slug=$1"
+        }
+    ],
+    "functions": {
+        "api/index.js": {
+            "includeFiles": [
+                "*.html",
+                "knowledge_data.js",
+                "blog_data.js"
+            ]
+        }
+    }
+}

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Science of Learning - Scientifier</title>
+<meta content="Discover the evidence-based learning science behind Scientifier. Evidence-based methods for accelerated learning." name="description"/>
+<!-- Open Graph / Facebook -->
+<meta content="website" property="og:type"/>
+<meta content="https://scientifier.com/method.html" property="og:url"/>
+<meta content="The Science of Learning - Scientifier" property="og:title"/>
+<meta content="Discover the evidence-based learning science behind Scientifier. Evidence-based methods for accelerated learning." property="og:description"/>
+<meta content="https://scientifier.com/assets/og-image.jpg" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://scientifier.com/method.html" property="twitter:url"/>
+<meta content="The Science of Learning - Scientifier" property="twitter:title"/>
+<meta content="Discover the evidence-based learning science behind Scientifier. Evidence-based methods for accelerated learning." property="twitter:description"/>
+<meta content="https://scientifier.com/assets/og-image.jpg" property="twitter:image"/>
+<!-- Favicon & PWA -->
+<link href="/assets/favicon-DQQA_XgY.svg" rel="icon" type="image/svg+xml"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/assets/manifest-CieieAbC.json" rel="manifest"/>
+<meta content="#10b981" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" type="text/javascript"></script>
+<style>
+        /* Method Page Specific Styles */
+        .method-hero {
+            padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
+            transform: translateX(-50%);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .method-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .method-hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        /* Pillars Section */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 900px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pillar-card h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Expert Cards */
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .expert-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .expert-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-3px);
+        }
+
+        .expert-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .expert-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .expert-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .expert-system {
+            font-size: 0.85rem;
+            color: var(--color-primary);
+        }
+
+        .expert-desc {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .expert-techniques {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .technique-tag {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--color-primary);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Technique Cards */
+        .techniques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .technique-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .technique-card:hover {
+            border-color: var(--color-primary);
+        }
+
+        .technique-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .technique-card h3 span {
+            font-size: 1.5rem;
+        }
+
+        .technique-card p {
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .technique-steps {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .technique-steps li {
+            counter-increment: step;
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--color-text);
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .technique-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .technique-steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: var(--color-primary);
+            color: var(--color-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Forgetting Curve Section */
+        .curve-section {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .curve-visual {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            margin: var(--spacing-md) 0;
+            padding: var(--spacing-sm);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius-sm);
+            position: relative;
+        }
+
+        .curve-bar {
+            flex: 1;
+            margin: 0 4px;
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            transition: height 0.5s ease;
+            position: relative;
+        }
+
+        .curve-bar.no-review {
+            background: linear-gradient(to top, var(--color-error), rgba(239, 68, 68, 0.3));
+        }
+
+        .curve-bar.with-review {
+            background: linear-gradient(to top, var(--color-success), rgba(34, 197, 94, 0.3));
+        }
+
+        .curve-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: var(--color-text-muted);
+            white-space: nowrap;
+        }
+
+        .curve-legend {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.red {
+            background: var(--color-error);
+        }
+
+        .legend-dot.green {
+            background: var(--color-success);
+        }
+
+        /* Books Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .book-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .book-emoji {
+            font-size: 2rem;
+        }
+
+        .book-info h4 {
+            color: var(--color-text);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .book-author {
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-desc {
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            margin: var(--spacing-lg) 0;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/voice-client-DhlfJVqx.js"></script>
+  <script type="module" crossorigin src="/assets/script-JMLIZS3t.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/chatbot-DxyMpbeg.css">
+</head>
+<body>
+<!-- Skip to content link for accessibility -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="header">
+<div class="container header-container">
+<a class="logo" href="index.html">Scientifier.</a>
+<button aria-label="Toggle navigation menu" class="mobile-menu-toggle" id="mobile-menu-toggle">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<nav class="nav" id="main-nav">
+<ul class="nav-list">
+<li><a data-i18n="nav_home" href="index.html">Home</a></li>
+<li><a data-i18n="nav_chatbot" href="chatbot.html">Ask Scienti</a></li>
+<li><a class="active" data-i18n="nav_system" href="method.html">Method &amp; Mission</a></li>
+<li><a data-i18n="nav_programs" href="programs.html">Learning &amp; Programs</a></li>
+<li><a data-i18n="nav_knowledge" href="knowledge.html">Knowledge Hub</a></li>
+<li><a data-i18n="nav_pricing" href="pricing.html">Pricing</a></li>
+<li><a data-i18n="nav_contact" href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="header-actions">
+<div class="lang-switcher">
+<select aria-label="Select Language" id="language-select">
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="tr">Türkçe</option>
+<option value="ar">العربية</option>
+<option value="es">Español</option>
+</select>
+</div>
+<button aria-label="Toggle Dark Mode" class="theme-toggle" id="theme-toggle">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<circle cx="12" cy="12" r="5"></circle>
+<path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<main id="main-content">
+<!-- Hero Section -->
+<section class="method-hero">
+<div class="container">
+<span class="eyebrow" data-i18n="method_hero_eyebrow">Evidence-Based Learning</span>
+<h1><span data-i18n="method_hero_title_1">The</span> <span class="gradient-text" data-i18n="method_hero_title_2">Science</span> <span data-i18n="method_hero_title_3">Behind Your
+                        Success</span></h1>
+<p class="subtitle" data-i18n="method_hero_subtitle">We don't reinvent the wheel. We integrate 50+ years
+                    of cognitive science research
+                    from the world's leading learning experts into one adaptive platform.</p>
+<a class="btn btn-primary pulse-btn" data-i18n="method_btn_experience" href="demo.html">Experience It
+                    Free</a>
+</div>
+</section>
+<!-- Three Pillars Section -->
+<section class="section">
+<div class="container">
+<h2 class="section-title" data-i18n="method_pillars_title">The Pillars of Mastery</h2>
+<div class="pillars-grid" style="grid-template-columns: repeat(2, 1fr);">
+<div class="pillar-card">
+<div class="pillar-icon">🧠</div>
+<h3 data-i18n="method_pillar_neuro">Neuroscience</h3>
+<p data-i18n="method_pillar_neuro_desc">Leverage how your brain actually encodes, consolidates,
+                            and retrieves information. We use
+                            spaced repetition, dual-mode learning, and active recall—proven to increase retention by up
+                            to 200%.</p>
+</div>
+<div class="pillar-card">
+<div class="pillar-icon">💡</div>
+<h3 data-i18n="method_pillar_psych">Psychology</h3>
+<p data-i18n="method_pillar_psych_desc">Motivation isn't magic—it's mechanics. We apply growth
+                            mindset principles, eliminate limiting
+                            beliefs (ANTs), and connect learning to your deepest personal goals for unstoppable drive.
+                        </p>
+</div>
+<div class="pillar-card">
+<div class="pillar-icon">🤖</div>
+<h3 data-i18n="method_pillar_ai">Adaptive AI</h3>
+<p data-i18n="method_pillar_ai_desc">Our AI analyzes your performance patterns, identifies
+                            weaknesses, and dynamically adjusts
+                            difficulty. It's like having a personal tutor who knows exactly when you're about to forget.
+                        </p>
+</div>
+<div class="pillar-card">
+<div class="pillar-icon">🔄</div>
+<h3 data-i18n="method_pillar_bridge">Cognitive Bridging</h3>
+<p data-i18n="method_pillar_bridge_desc">Leverage your legacy. We bridge your new goals with
+                            your
+                            existing knowledge (e.g., using French to master Spanish), creating intelligent shortcuts to
+                            fluency.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Techniques Section -->
+<section class="section" style="background: var(--color-surface);">
+<div class="container">
+<h2 class="section-title" data-i18n="method_techniques_title">Core Techniques We Use</h2>
+<p data-i18n="method_techniques_subtitle" style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    These aren't gimmicks. They're research-backed methods with decades of evidence behind them.
+                </p>
+<div class="techniques-grid">
+<!-- Spaced Repetition -->
+<div class="technique-card">
+<h3 data-i18n="method_tech_sr"><span>⏱️</span> Spaced Repetition</h3>
+<p data-i18n="method_tech_sr_desc">Review information at optimal intervals, just before you
+                            forget. Our AI calculates your
+                            personal retention curve.</p>
+<ul class="technique-steps">
+<li data-i18n="method_step_sr_1">Learn new material</li>
+<li data-i18n="method_step_sr_2">Review after 1 day</li>
+<li data-i18n="method_step_sr_3">Review after 3 days</li>
+<li data-i18n="method_step_sr_4">Review after 7 days, then monthly</li>
+</ul>
+</div>
+<!-- Active Recall -->
+<div class="technique-card">
+<h3 data-i18n="method_tech_recall"><span>🧩</span> Active Recall</h3>
+<p data-i18n="method_tech_recall_desc">Don't re-read—retrieve. Testing yourself forces the brain
+                            to strengthen memory traces.</p>
+<ul class="technique-steps">
+<li data-i18n="method_step_recall_1">Close your notes</li>
+<li data-i18n="method_step_recall_2">Try to recall information from memory</li>
+<li data-i18n="method_step_recall_3">Check and correct mistakes</li>
+<li data-i18n="method_step_recall_4">Repeat until automatic</li>
+</ul>
+</div>
+<!-- Dual-Mode Learning -->
+<div class="technique-card">
+<h3 data-i18n="method_tech_modes"><span>🌙</span> Focused &amp; Diffuse Modes</h3>
+<p data-i18n="method_tech_modes_desc">Your brain has two learning modes. Toggle between focused
+                            attention and relaxed thinking for
+                            optimal results.</p>
+<ul class="technique-steps">
+<li data-i18n="method_step_modes_1">Focus intensely for 25-50 minutes</li>
+<li data-i18n="method_step_modes_2">Take a break (walk, stretch)</li>
+<li data-i18n="method_step_modes_3">Let diffuse mode process in background</li>
+<li data-i18n="method_step_modes_4">Return with fresh insights</li>
+</ul>
+</div>
+<!-- Interleaving -->
+<div class="technique-card">
+<h3 data-i18n="method_tech_interleave"><span>🔀</span> Interleaving</h3>
+<p data-i18n="method_tech_interleave_desc">Don't practice one skill in isolation. Mix up
+                            different topics to build discrimination and
+                            transfer.</p>
+<ul class="technique-steps">
+<li data-i18n="method_step_interleave_1">Mix different problem types</li>
+<li data-i18n="method_step_interleave_2">Vary vocabulary topics within sessions</li>
+<li data-i18n="method_step_interleave_3">Switch before feeling "done"</li>
+<li data-i18n="method_step_interleave_4">Build flexible knowledge</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<div class="container">
+<div class="section-divider"></div>
+</div>
+<!-- The Forgetting Curve -->
+<section class="section">
+<div class="container">
+<h2 class="section-title" data-i18n="method_curve_title">The Forgetting Curve: Why Timing Matters</h2>
+<div class="curve-section">
+<p data-i18n="method_curve_desc" style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                        Without review, you lose 80% of new information within 2 days. Spaced repetition resets this
+                        curve.
+                    </p>
+<div class="curve-visual">
+<div class="curve-bar no-review" style="height: 100%;">
+<span class="curve-label">Day 0</span>
+</div>
+<div class="curve-bar no-review" style="height: 50%;">
+<span class="curve-label">Day 1</span>
+</div>
+<div class="curve-bar no-review" style="height: 30%;">
+<span class="curve-label">Day 2</span>
+</div>
+<div class="curve-bar no-review" style="height: 20%;">
+<span class="curve-label">Day 3</span>
+</div>
+<div class="curve-bar no-review" style="height: 15%;">
+<span class="curve-label">Day 7</span>
+</div>
+<div class="curve-bar no-review" style="height: 10%;">
+<span class="curve-label">Day 14</span>
+</div>
+<div class="curve-bar no-review" style="height: 5%;">
+<span class="curve-label">Day 30</span>
+</div>
+</div>
+<div class="curve-visual" style="margin-top: var(--spacing-md);">
+<div class="curve-bar with-review" style="height: 100%;">
+<span class="curve-label">Day 0</span>
+</div>
+<div class="curve-bar with-review" style="height: 100%;">
+<span class="curve-label">Day 1 ✓</span>
+</div>
+<div class="curve-bar with-review" style="height: 95%;">
+<span class="curve-label">Day 2</span>
+</div>
+<div class="curve-bar with-review" style="height: 100%;">
+<span class="curve-label">Day 3 ✓</span>
+</div>
+<div class="curve-bar with-review" style="height: 100%;">
+<span class="curve-label">Day 7 ✓</span>
+</div>
+<div class="curve-bar with-review" style="height: 95%;">
+<span class="curve-label">Day 14</span>
+</div>
+<div class="curve-bar with-review" style="height: 100%;">
+<span class="curve-label">Day 30 ✓</span>
+</div>
+</div>
+<div class="curve-legend">
+<div class="legend-item">
+<span class="legend-dot red"></span>
+<span data-i18n="method_curve_without">Without Review</span>
+</div>
+<div class="legend-item">
+<span class="legend-dot green"></span>
+<span data-i18n="method_curve_with">With Spaced Repetition</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission Section (Merged) -->
+<section class="section bg-surface" id="mission">
+<div class="container">
+<div class="section-divider" style="margin-bottom: var(--spacing-xl);"></div>
+<h2 class="section-title" data-i18n="about_title">Our Mission</h2>
+<div class="text-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+<p data-i18n="about_desc" style="margin-bottom: 2rem;">Scientifier is not just a platform; it's a
+                        movement. We are dismantling
+                        outdated education models by fusing cutting-edge Neuroscience, Psychology, and AI. Our goal is
+                        to make autonomy in learning the new standard for the human experience.</p>
+<div class="goal-content" style="margin-top: 3rem; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+<h3 data-i18n="goal_title" style="margin-bottom: 1rem; color: var(--color-primary); text-align: center;">The Goal:
+                            Total Autonomy</h3>
+<p data-i18n="goal_desc" style="margin-bottom: 1.5rem; text-align: center;">Empowering you to
+                            learn anything, anywhere, independently using:</p>
+<ul style="list-style: none; padding-left: 0; display: inline-block; text-align: left;">
+<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;">
+<span style="color: var(--color-primary); margin-right: 0.5rem;">•</span>
+<span data-i18n="goal_point_1">Adaptive Artificial Intelligence</span>
+</li>
+<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;">
+<span style="color: var(--color-primary); margin-right: 0.5rem;">•</span>
+<span data-i18n="goal_point_2">Neuro-Protocols (NSDR, Spaced Repetition)</span>
+</li>
+<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;">
+<span style="color: var(--color-primary); margin-right: 0.5rem;">•</span>
+<span data-i18n="goal_point_3">Associative Learning (Cognitive Bridging)</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="section" style="text-align: center; padding: var(--spacing-xl) 0; background: var(--color-surface);">
+<div class="container">
+<h2 class="section-title" data-i18n="method_cta_title">Stop Struggling. Start Mastering.</h2>
+<p data-i18n="method_cta_desc" style="color: var(--color-text-muted); margin-bottom: var(--spacing-md); max-width: 500px; margin-left: auto; margin-right: auto;">
+                    Experience what learning feels like when it's backed by real science.
+                </p>
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+<a class="btn btn-primary pulse-btn" href="demo.html">Try Free Demo</a>
+<a class="btn btn-secondary" href="pricing.html">View Pricing</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-section">
+<h4>Product</h4>
+<ul>
+<li><a href="programs.html">Programs</a></li>
+<li><a href="method.html">The Method</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="demo.html">Try Demo</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Company</h4>
+<ul>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Legal</h4>
+<ul>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Connect</h4>
+<div class="social-links">
+<a aria-label="Twitter" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg></a>
+<a aria-label="LinkedIn" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+</svg></a>
+<a aria-label="YouTube" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+</svg></a>
+</div>
+<div class="app-badges" style="margin-top: 1rem;">
+<a aria-label="Download on App Store" class="app-badge" href="#">
+<img alt="App Store" height="40" loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"/>
+</a>
+<a aria-label="Get it on Google Play" class="app-badge" href="#">
+<img alt="Google Play" height="40" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"/>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Scientifier. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body>
+</html>

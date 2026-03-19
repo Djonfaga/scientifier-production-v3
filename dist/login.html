@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Scientifier</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon-DQQA_XgY.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card {
+            background: var(--color-surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-header p {
+            color: var(--color-text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            color: var(--color-text);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .auth-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .auth-links a {
+            color: var(--color-primary);
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            display: none;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .auth-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--color-primary-glow);
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/login-BTwXU9AY.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/voice-client-DhlfJVqx.js">
+  <link rel="modulepreload" crossorigin href="/assets/script-JMLIZS3t.js">
+  <link rel="stylesheet" crossorigin href="/assets/chatbot-DxyMpbeg.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-bg">
+            <div class="blob" style="top: -100px; right: -100px;"></div>
+            <div class="blob" style="bottom: -100px; left: -100px; background: var(--color-accent-glow);"></div>
+        </div>
+
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo"
+                    style="display: inline-block; margin-bottom: 1.5rem; font-size: 2rem;">Scientifier.</a>
+                <h1>Welcome Back</h1>
+                <p>Enter your credentials to access your lab</p>
+            </div>
+
+            <div id="error-box" class="error-message"></div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary pulse-btn" style="width: 100%; margin-top: 1rem;">Sign
+                    In</button>
+
+                <div class="auth-links">
+                    <span>Don't have an account? <a href="signup.html">Sign Up</a></span>
+                    <a href="#">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

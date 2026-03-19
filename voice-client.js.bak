@@ -1,0 +1,251 @@
+// Scientifier Voice Client - Powered by Gemini Live (WebSocket)
+// ==========================================
+console.log("Voice Client Module Loaded");
+
+const GEMINI_API_KEY_DEFAULT = "AIzaSyC54Y222GuWWDmQ2qRmTFWhAm6rTjkncw4";
+let GEMINI_API_KEY = GEMINI_API_KEY_DEFAULT;
+
+// Fetch config on load
+fetch('/api/config')
+    .then(res => res.json())
+    .then(data => {
+        if (data.geminiKey) {
+            console.log("Using server-provided Gemini Key");
+            GEMINI_API_KEY = data.geminiKey;
+        }
+    })
+    .catch(err => console.warn("Using default key, no server config found"));
+
+const MODEL = "models/gemini-2.0-flash-exp";
+const HOST = "generativelanguage.googleapis.com";
+const URI = `wss://${HOST}/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent`;
+
+// State
+let isConnected = false;
+let inputAudioContext = null;
+let outputAudioContext = null;
+let mediaStream = null;
+let ws = null;
+let nextStartTime = 0;
+let sources = new Set();
+let mounted = true;
+
+// Start Live Session
+window.startLiveSession = async function () {
+    console.log("Starting Live Session (WebSocket)...");
+
+    updateLiveUI('connecting', "Connecting to Scienti...");
+    mounted = true;
+
+    try {
+        // Init Audio Contexts
+        inputAudioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+        outputAudioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
+
+        // Request Mic
+        try {
+            mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        } catch (e) {
+            updateLiveUI('error', "Microphone access denied.");
+            return;
+        }
+
+        // Initialize WebSocket
+        const url = `${URI}?key=${GEMINI_API_KEY}`;
+        ws = new WebSocket(url);
+
+        ws.onopen = () => {
+            console.log("WebSocket Connected");
+            isConnected = true;
+            updateLiveUI('active', "Listening...");
+
+            // Send Setup Message
+            const setupMsg = {
+                setup: {
+                    model: MODEL,
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: {
+                            voiceConfig: { prebuiltVoiceConfig: { voiceName: "Kore" } }
+                        }
+                    }
+                }
+            };
+            ws.send(JSON.stringify(setupMsg));
+
+            // Start Audio Processing
+            processAudioInput();
+        };
+
+        ws.onmessage = async (event) => {
+            let data;
+            if (event.data instanceof Blob) {
+                data = JSON.parse(await event.data.text());
+            } else {
+                data = JSON.parse(event.data);
+            }
+
+            if (data.serverContent?.modelTurn?.parts?.[0]?.inlineData) {
+                const base64Audio = data.serverContent.modelTurn.parts[0].inlineData.data;
+                playAudioChunk(base64Audio);
+            }
+        };
+
+        ws.onclose = (e) => {
+            console.log("WebSocket Closed", e.code, e.reason);
+            isConnected = false;
+            updateLiveUI('inactive', "Disconnected");
+        };
+
+        ws.onerror = (e) => {
+            console.error("WebSocket Error:", e);
+            updateLiveUI('error', "Connection Error");
+        };
+
+    } catch (e) {
+        console.error("Failed to start session:", e);
+        updateLiveUI('error', e.message);
+    }
+};
+
+window.stopLiveSession = function () {
+    console.log("Stopping Live Session...");
+    isConnected = false;
+    mounted = false;
+
+    if (ws) {
+        ws.close();
+        ws = null;
+    }
+
+    if (mediaStream) {
+        mediaStream.getTracks().forEach(t => t.stop());
+        mediaStream = null;
+    }
+
+    if (inputAudioContext) inputAudioContext.close();
+    if (outputAudioContext) outputAudioContext.close();
+
+    updateLiveUI('inactive', "Session Ended");
+};
+
+// --- Audio Input Processing ---
+function processAudioInput() {
+    if (!inputAudioContext || !mediaStream) return;
+
+    const source = inputAudioContext.createMediaStreamSource(mediaStream);
+    const processor = inputAudioContext.createScriptProcessor(4096, 1, 1);
+
+    processor.onaudioprocess = (e) => {
+        if (!isConnected || !ws || ws.readyState !== WebSocket.OPEN) return;
+
+        const inputData = e.inputBuffer.getChannelData(0);
+        updateVisualizer(inputData);
+
+        const pcm16 = floatTo16BitPCM(inputData);
+        const base64 = btoa(String.fromCharCode(...new Uint8Array(pcm16.buffer)));
+
+        // Send Audio Chunk
+        const msg = {
+            realtimeInput: {
+                mediaChunks: [{
+                    mimeType: "audio/pcm;rate=16000",
+                    data: base64
+                }]
+            }
+        };
+        ws.send(JSON.stringify(msg));
+    };
+
+    source.connect(processor);
+    processor.connect(inputAudioContext.destination);
+}
+
+// --- Audio Output Processing ---
+async function playAudioChunk(base64Audio) {
+    if (!outputAudioContext) return;
+
+    updateLiveUI('speaking', "Scienti Speaking...");
+
+    const audioBuffer = await decodeAudioData(base64Audio, outputAudioContext, 24000, 1);
+
+    // Manage timing to play chunks seamlessly
+    const currentTime = outputAudioContext.currentTime;
+    if (nextStartTime < currentTime) nextStartTime = currentTime;
+
+    const source = outputAudioContext.createBufferSource();
+    source.buffer = audioBuffer;
+    source.connect(outputAudioContext.destination);
+
+    source.onended = () => {
+        sources.delete(source);
+        if (sources.size === 0) updateLiveUI('active', "Listening...");
+    };
+
+    source.start(nextStartTime);
+    nextStartTime += audioBuffer.duration;
+    sources.add(source);
+}
+
+// --- Helpers ---
+async function decodeAudioData(base64, ctx, sampleRate, numChannels) {
+    const binary = atob(base64);
+    const len = binary.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) bytes[i] = binary.charCodeAt(i);
+
+    const dataInt16 = new Int16Array(bytes.buffer);
+    const frameCount = dataInt16.length / numChannels;
+    const buffer = ctx.createBuffer(numChannels, frameCount, sampleRate);
+
+    for (let channel = 0; channel < numChannels; channel++) {
+        const channelData = buffer.getChannelData(channel);
+        for (let i = 0; i < frameCount; i++) {
+            channelData[i] = dataInt16[i * numChannels + channel] / 32768.0;
+        }
+    }
+    return buffer;
+}
+
+function floatTo16BitPCM(input) {
+    const output = new Int16Array(input.length);
+    for (let i = 0; i < input.length; i++) {
+        const s = Math.max(-1, Math.min(1, input[i]));
+        output[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+    }
+    return output;
+}
+
+// --- UI Helpers ---
+function updateLiveUI(state, msg) {
+    const statusText = document.getElementById('live-status-text');
+    const subStatus = document.getElementById('live-sub-status');
+    const orb = document.getElementById('live-orb');
+
+    if (statusText) statusText.textContent = msg;
+    if (subStatus) subStatus.textContent = state === 'speaking' ? "Speaking..." : "Active";
+
+    if (orb) {
+        if (state === 'speaking') {
+            orb.style.transform = 'scale(1.2)';
+            orb.style.boxShadow = '0 0 80px var(--color-accent)';
+        } else if (state === 'active') {
+            orb.style.transform = 'scale(1)';
+            orb.style.boxShadow = '0 0 50px var(--color-primary)';
+        }
+    }
+}
+
+function updateVisualizer(data) {
+    const visualizer = document.getElementById('visualizer');
+    if (!visualizer) return;
+    const bars = visualizer.querySelectorAll('.bar');
+    if (!bars.length) return;
+    let sum = 0;
+    for (let i = 0; i < data.length; i++) sum += data[i] * data[i];
+    const rms = Math.sqrt(sum / data.length);
+    const val = Math.min(rms * 10, 1);
+    bars.forEach(bar => {
+        bar.style.height = `${10 + (Math.random() * 90 * val)}px`;
+    });
+}

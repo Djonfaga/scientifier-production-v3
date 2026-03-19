@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowledge Hub - Scientifier</title>
+<meta content="Unlimited Knowledge Base powered by NotebookLM. Free courses, mini-lessons, and deep research notebooks for science-based learning." name="description"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="header">
+<div class="container header-container">
+<a class="logo" href="index.html">Scientifier.</a>
+<button aria-label="Toggle navigation menu" class="mobile-menu-toggle" id="mobile-menu-toggle">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<nav class="nav" id="main-nav">
+<ul class="nav-list">
+<li><a data-i18n="nav_home" href="index.html">Home</a></li>
+<li><a data-i18n="nav_chatbot" href="chatbot.html">Ask Scienti</a></li>
+<li><a data-i18n="nav_system" href="method.html">Method &amp; Mission</a></li>
+<li><a data-i18n="nav_programs" href="programs.html">Learning &amp; Programs</a></li>
+<li><a class="active" data-i18n="nav_knowledge" href="knowledge.html">Knowledge Hub</a></li>
+<li><a data-i18n="nav_pricing" href="pricing.html">Pricing</a></li>
+<li><a data-i18n="nav_contact" href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="header-actions">
+<div class="lang-switcher">
+<select aria-label="Select Language" id="language-select">
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="tr">Türkçe</option>
+<option value="ar">العربية</option>
+<option value="es">Español</option>
+</select>
+</div>
+<button aria-label="Toggle Dark Mode" class="theme-toggle" id="theme-toggle">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<circle cx="12" cy="12" r="5"></circle>
+<path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero -->
+<section class="kh-hero">
+<div class="kh-hero-particles" id="kh-particles"></div>
+<div class="container">
+<span class="eyebrow" data-i18n="kh_eyebrow">🔬 Unlimited Synaptic Archive</span>
+<h1 class="hero-title" data-i18n="kh_hero_title" style="font-size:clamp(2.5rem,5vw,4rem);">The Scientifier Vault</h1>
+<p class="kh-hero-desc" data-i18n="kh_hero_desc">
+                    Deep-dive research hubs powered by NotebookLM. We curate the world's most scientifically rigorous data so
+                    you can master any domain with surgical precision. All free-tier content is 100% free, forever.
+                </p>
+<div class="kh-hero-stats">
+<div class="kh-stat-pill"><strong>12</strong> <span data-i18n="kh_stat_courses">Free Courses</span></div>
+<div class="kh-stat-pill"><strong>180+</strong> <span data-i18n="kh_stat_lessons">Lessons</span></div>
+<div class="kh-stat-pill"><strong>4</strong> <span data-i18n="kh_stat_notebooks">Research Notebooks</span></div>
+<div class="kh-stat-pill"><strong>∞</strong> <span data-i18n="kh_stat_sources">Knowledge Sources</span></div>
+</div>
+</div>
+</section>
+<!-- NotebookLM Research Notebooks -->
+<section class="section" id="notebooks">
+<div class="container">
+<h2 class="section-title" data-i18n="kh_dossiers_title">🔗 Neuro-Linked Research Dossiers</h2>
+<p class="section-subtitle" data-i18n="kh_dossiers_subtitle">Each dossier is a living AI brain. Powered by Google NotebookLM.</p>
+<div class="kh-notebooks-grid" id="notebooks-grid">
+<!-- Dynamic Notebook Cards -->
+</div>
+<!-- NotebookLM Connection Panel -->
+<div class="kh-nlm-panel">
+<div class="kh-nlm-header">
+<div class="kh-nlm-logo">
+<svg fill="none" height="32" stroke="var(--color-primary)" stroke-width="2" viewbox="0 0 24 24" width="32">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+<path d="M8 7h8M8 11h8M8 15h4"></path>
+</svg>
+</div>
+<div>
+<h3>NotebookLM Integration</h3>
+<p>Upload files to any notebook → this web app instantly uses that knowledge</p>
+</div>
+</div>
+<div class="kh-nlm-flow">
+<div class="kh-flow-step">
+<div class="kh-flow-num">1</div>
+<p>Open a Research Notebook above</p>
+</div>
+<div class="kh-flow-arrow">→</div>
+<div class="kh-flow-step">
+<div class="kh-flow-num">2</div>
+<p>Upload PDFs, docs, YouTube links, websites</p>
+</div>
+<div class="kh-flow-arrow">→</div>
+<div class="kh-flow-step">
+<div class="kh-flow-num">3</div>
+<p>Ask Scienti anything — answers are grounded in YOUR sources</p>
+</div>
+</div>
+<a class="btn btn-primary pulse-btn" data-i18n="kh_btn_launch" href="https://notebooklm.google.com/" rel="noopener" style="display:inline-block; margin-top:1.5rem;" target="_blank">
+                        🚀 Launch NotebookLM
+                    </a>
+</div>
+</div>
+</section>
+<!-- Free Courses -->
+<section class="section section-alt" id="free-courses">
+<div class="container">
+<h2 class="section-title" data-i18n="kh_library_title">🎓 Free Learning Library</h2>
+<p class="section-subtitle" data-i18n="kh_library_subtitle">100% free, no credit card, no limits. Premium quality education for everyone on Earth.</p>
+<!-- Filter Tabs -->
+<div class="kh-filter-tabs">
+<button class="kh-filter-tab active" data-filter="all">All</button>
+<button class="kh-filter-tab" data-filter="Languages">🌱 Languages</button>
+<button class="kh-filter-tab" data-filter="Science">🧠 Science</button>
+<button class="kh-filter-tab" data-filter="Tech">🤖 Tech</button>
+<button class="kh-filter-tab" data-filter="Skills">📝 Skills</button>
+<button class="kh-filter-tab" data-filter="Wellness">🎯 Wellness</button>
+<button class="kh-filter-tab" data-filter="Culture">🌍 Culture</button>
+</div>
+<div class="kh-courses-grid" id="courses-grid">
+<!-- Dynamic Course Cards -->
+</div>
+</div>
+</section>
+<!-- Quick Lessons -->
+<section class="section" id="mini-lessons">
+<div class="container">
+<h2 class="section-title">⚡ Quick Lessons — Learn in Minutes</h2>
+<p class="section-subtitle">No signup needed. Pick a card and start learning right now.</p>
+<div class="kh-mini-grid" id="mini-lessons-grid">
+<!-- Dynamic Mini Lessons -->
+</div>
+</div>
+</section>
+<!-- Knowledge Ask Panel -->
+<section class="section section-alt" id="ask-knowledge">
+<div class="container" style="text-align:center;">
+<h2 class="section-title">🤖 Ask the Knowledge Base</h2>
+<p class="section-subtitle">Powered by NotebookLM. Ask any question and get answers grounded in our
+                    curated research sources.</p>
+<div class="kh-ask-panel">
+<div class="kh-ask-input-wrap">
+<input class="kh-ask-input" id="kh-ask-input" placeholder="Ask anything... e.g. How does spaced repetition work?" type="text"/>
+<button class="btn btn-primary kh-ask-btn" id="kh-ask-btn">Ask →</button>
+</div>
+<div class="kh-ask-suggestions">
+<span class="kh-suggestion" data-q="How does spaced repetition improve memory?">🧠 Spaced
+                            Repetition</span>
+<span class="kh-suggestion" data-q="What is the best way to learn French pronunciation?">🇫🇷
+                            French
+                            Pronunciation</span>
+<span class="kh-suggestion" data-q="Explain active recall vs passive review">📚 Active
+                            Recall</span>
+<span class="kh-suggestion" data-q="How to use NotebookLM for studying?">🤖 NotebookLM
+                            Tips</span>
+<span class="kh-suggestion" data-q="What are NSDR protocols?">🧘 NSDR Protocol</span>
+</div>
+<div class="kh-ask-result" id="kh-ask-result" style="display:none;">
+<div class="kh-result-header">
+<span class="kh-status-dot"></span> Answer from Knowledge Base
+                        </div>
+<div class="kh-result-body" id="kh-result-body"></div>
+<div class="kh-result-sources">
+<small>Sources: NotebookLM Research Notebooks</small>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Learning Paths -->
+<section class="section" id="paths">
+<div class="container">
+<h2 class="section-title">🗺️ Guided Learning Paths</h2>
+<p class="section-subtitle">Structured sequences designed by Scientifier's AI. Follow a path and never
+                    wonder 'what next' again.</p>
+<div class="kh-paths-grid">
+<div class="kh-path-card">
+<div class="kh-path-badge">Beginner</div>
+<h3>🚀 Zero to Conversational</h3>
+<p>Go from absolute zero to holding a 5-minute conversation in your target language. Combines
+                            vocabulary drills, grammar foundations, and shadowing exercises.</p>
+<div class="kh-path-steps">
+<div class="kh-step-dot active"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+</div>
+<span class="kh-path-meta">4 stages · 30 lessons · Free</span>
+</div>
+<div class="kh-path-card">
+<div class="kh-path-badge kh-path-badge--accent">Intermediate</div>
+<h3>🧠 Learn How to Learn</h3>
+<p>Master evidence-based study techniques. Spaced repetition, active recall, Feynman
+                            technique, interleaving, and deliberate practice — backed by peer-reviewed research.</p>
+<div class="kh-path-steps">
+<div class="kh-step-dot active"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+</div>
+<span class="kh-path-meta">5 stages · 42 lessons · Free</span>
+</div>
+<div class="kh-path-card">
+<div class="kh-path-badge">Advanced</div>
+<h3>🤖 AI-Powered Research</h3>
+<p>Use AI tools like NotebookLM, Gemini, and ChatGPT to transform how you research, study, and
+                            retain information. Become an AI-augmented learner.</p>
+<div class="kh-path-steps">
+<div class="kh-step-dot active"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+<div class="kh-step-line"></div>
+<div class="kh-step-dot"></div>
+</div>
+<span class="kh-path-meta">3 stages · 18 lessons · Free</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="cta-section" style="padding: 4rem 0; text-align: center;">
+<div class="container">
+<h2>Ready to Unlock Unlimited Knowledge?</h2>
+<p style="font-size:1.2rem; margin-bottom:2rem; color:var(--color-text-muted);">
+                    Start with any free course, explore our NotebookLM research hubs, or ask the AI anything.
+                </p>
+<div class="cta-buttons" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+<a class="btn btn-primary btn-large pulse-btn" data-i18n="kh_btn_browse" href="#free-courses">Browse Free Courses</a>
+<a class="btn btn-secondary btn-large" data-i18n="nav_chatbot" href="chatbot.html">Ask Scienti</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-section">
+<h4 data-i18n="footer_product">Product</h4>
+<ul>
+<li><a data-i18n="nav_programs" href="programs.html">Programs</a></li>
+<li><a data-i18n="nav_knowledge" href="knowledge.html">Knowledge Hub</a></li>
+<li><a data-i18n="nav_system" href="method.html">The Method</a></li>
+<li><a data-i18n="nav_pricing" href="pricing.html">Pricing</a></li>
+<li><a data-i18n="footer_demo" href="demo.html">Try Demo</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer_company">Company</h4>
+<ul>
+<li><a data-i18n="nav_contact" href="contact.html">Contact</a></li>
+<li><a data-i18n="footer_blog" href="blog.html">Blog</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer_legal">Legal</h4>
+<ul>
+<li><a data-i18n="footer_terms" href="terms.html">Terms of Service</a></li>
+<li><a data-i18n="footer_privacy" href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer_connect">Connect</h4>
+<div class="social-links">
+<a aria-label="Twitter" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg></a>
+<a aria-label="LinkedIn" href="#"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+</svg></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p data-i18n="footer_rights">© 2026 Scientifier. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script src="knowledge_data.js"></script>
+<script src="script.js" type="module"></script>
+</body>
+</html>

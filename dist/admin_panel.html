@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Scientifier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 1.5rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .admin-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--color-surface-elevated);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+        }
+
+        .admin-tab.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .admin-tab:hover:not(.active) {
+            border-color: var(--color-primary);
+            color: var(--color-text);
+        }
+
+        .admin-content {
+            background: var(--color-bg-alt);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            min-height: 400px;
+            border: 1px solid var(--color-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        th {
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:hover {
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .badge {
+            padding: 0.25rem 0.6rem;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-pro {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--color-primary);
+        }
+
+        .badge-elite {
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--color-accent);
+        }
+
+        .badge-free {
+            background: var(--color-surface-elevated);
+            color: var(--color-text-muted);
+        }
+
+        .badge-issue {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--color-error);
+        }
+
+        .badge-suggestion {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--color-success);
+        }
+
+        .feedback-msg {
+            max-width: 300px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.2s;
+        }
+
+        .feedback-msg:hover {
+            white-space: normal;
+            overflow: visible;
+            color: var(--color-text);
+        }
+
+        .status-unread {
+            font-weight: 700;
+            border-left: 3px solid var(--color-primary);
+            background: rgba(16, 185, 129, 0.02);
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/admin_panel-D67P0UMi.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/voice-client-DhlfJVqx.js">
+  <link rel="modulepreload" crossorigin href="/assets/script-JMLIZS3t.js">
+  <link rel="stylesheet" crossorigin href="/assets/chatbot-DxyMpbeg.css">
+</head>
+
+<body class="dark-mode">
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Scientifier.</a>
+            <nav class="nav" id="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="admin_panel.html" class="active">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-secondary" onclick="window.location.href='index.html'">Main Site</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        <div class="admin-header">
+            <div>
+                <h1>System Administration</h1>
+                <p class="text-muted">Monitor users, progress, and feedback.</p>
+            </div>
+            <div id="stats-summary" style="display: flex; gap: 2rem;">
+                <!-- Loaded by JS -->
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <div class="admin-tab active" data-tab="users">User Directory</div>
+            <div class="admin-tab" data-tab="feedback">User Feedback</div>
+            <div class="admin-tab" data-tab="stats">Global Stats</div>
+        </div>
+
+        <div class="admin-content" id="admin-content">
+            <div id="loading" style="text-align: center; padding: 3rem;">
+                <div class="loader"></div>
+                <p>Loading administrative data...</p>
+            </div>
+            <!-- Dynamic Table Content -->
+        </div>
+    </main>
+
+</body>
+
+</html>

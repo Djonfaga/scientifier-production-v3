@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Scientifier</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon-DQQA_XgY.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card {
+            background: var(--color-surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-header p {
+            color: var(--color-text-muted);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            color: var(--color-text);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .auth-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .auth-links a {
+            color: var(--color-primary);
+            margin-left: 0.5rem;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            display: none;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .auth-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--color-primary-glow);
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/signup-Df-FY8ZZ.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/voice-client-DhlfJVqx.js">
+  <link rel="modulepreload" crossorigin href="/assets/script-JMLIZS3t.js">
+  <link rel="stylesheet" crossorigin href="/assets/chatbot-DxyMpbeg.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-bg">
+            <div class="blob" style="top: -100px; right: -100px; background: var(--color-accent-glow);"></div>
+            <div class="blob" style="bottom: -100px; left: -100px;"></div>
+        </div>
+
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo"
+                    style="display: inline-block; margin-bottom: 1.5rem; font-size: 2rem;">Scientifier.</a>
+                <h1>Join the Revolution</h1>
+                <p>Start your journey to mastery powered by science</p>
+            </div>
+
+            <div id="error-box" class="error-message"></div>
+
+            <form id="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" class="form-control" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" class="form-control" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="johndoe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Minimum 8 characters"
+                        required minlength="8">
+                </div>
+
+                <button type="submit" class="btn btn-primary pulse-btn" style="width: 100%; margin-top: 1rem;">Create
+                    Account</button>
+
+                <div class="auth-links">
+                    <span>Already have an account? <a href="login.html">Sign In</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
